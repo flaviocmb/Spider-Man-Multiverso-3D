@@ -176,7 +176,7 @@ body[id^='spider-man-']::before {
 }
 
 /* deixar os outros cards preto e branco */
-/* .s-card:not(.s-card--hovered) busca-se todos os elementos s-card que não seja --hovered */
+/* .s-card:not(.s-card--hovered) busca todos os elementos s-card que não seja --hovered */
 /* será aplicado um filtro cinza */
 body[id^='spider-man-'] .s-card:not(.s-card--hovered) {
     filter: grayscale(100%)

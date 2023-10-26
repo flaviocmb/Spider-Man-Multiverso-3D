@@ -31,7 +31,6 @@ function AddEventListenersToCards() {
     for (let i = 0; i < cardElements.length; i++) {
         cardElements[i].addEventListener('mouseenter', handleMouseEnter);
         cardElements[i].addEventListener('mouseleave', handleMouseLeave);
-        
     }
 }
 
@@ -45,11 +44,31 @@ function selectCarouselItem(selectedButtonElement) {
     const carousel = document.querySelector('.s-cards-carousel');
     const transform = carousel.style.transform;
     const rotateY = transform.match(/rotateY\((-?\d+deg)\)/i);
-    const rotateYDeg = -120 * (Number(selectedItem) - 1) // 360/3 (3 cards)
-    const newTransform = transform.replace(rotateY[0], `rotateY(${rotateYDeg}Deg)`);
+    const rotateYDeg = -120 * (Number(selectedItem) - 1); //SelectedItem equivale ao número do id (1, 2 ou 3), subtraído de -1 e depois múltiplicado por 120 (acrescenta-se 120 graus).
+    const newTransform = transform.replace(rotateY[0], `rotateY(${rotateYDeg}Deg)`); //ele rotaciona (x)deg a partir do ponto em que está
     carousel.style.transform = newTransform;
+
+    const cards = {
+        spider1: "spider-man-01",
+        spider2: "spider-man-02",
+        spider3: "spider-man-03",
+    }
+
+    console.log(selectedButtonElement);
+
+    if (selectedItem === "1") {
+        console.log(cards.spider1);
+    } else if (selectedItem === "2") {
+        console.log(cards.spider2);
+    } else {
+        console.log(cards.spider3);
+    }
+
+    /* To-Do: aplicar o hover (.s-controller__button:hover) somente no elemento ativo,
+    fazer isso baseado no botão, pois a rotação não tem posicionamento deg fixo. */
 
     const activeButtonElement = document.querySelector('.s-controller__button--active');
     activeButtonElement.classList.remove('s-controller__button--active');
     selectedButtonElement.classList.add('s-controller__button--active');
+
 }
